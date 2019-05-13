@@ -31,15 +31,18 @@
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
+@property (strong) NSWindow *window;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
+    NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+    self.window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
+    self.window.title = [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"];
+    [self.window makeKeyAndOrderFront: self];
 }
-
 
 - (void)applicationWillTerminate: (NSNotification *)aNotification
 {
