@@ -1,6 +1,6 @@
 //
-// NexoApplication.hpp
-// Created by Alejandro Castro García on 8 April 2019
+// NexoMacSingleWindowApp.hpp
+// Created by Alejandro Castro García on 23 July 2019
 /*
  MIT License
  
@@ -27,29 +27,13 @@
 
 
 
-#ifndef NexoApplication_hpp
-#define NexoApplication_hpp
+#ifndef NexoMacSingleWindowApp_hpp
+#define NexoMacSingleWindowApp_hpp
+
+#include "NexoSingleWindowApp.hpp"
 
 namespace nexo
 {
-    class Application
-    {
-    protected:
-        char** argv;
-        int argc;
-
-    public:
-        int result;
-
-        static void Start(int argc, char** argv);
-        static Application& ThisApp();
-
-        Application(int argc, char**argv);
-        
-        int Argc();
-        const char** Argv();
-
-    };
 }
 
-#endif /* NexoApplication_hpp */
+#endif /* NexoMacSingleWindowApp_hpp */

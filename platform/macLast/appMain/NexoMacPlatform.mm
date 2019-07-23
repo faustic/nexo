@@ -1,5 +1,5 @@
 //
-//  AppDelegate.m
+//  NexoMacPlatform.mm
 //  Project
 //
 //  Created by Alejandro Castro García on 7 April 2019.
@@ -27,26 +27,28 @@
  SOFTWARE.
  */
 
-#import "AppDelegate.h"
+#include "NexoMacPlatform.hpp"
 
-@interface AppDelegate ()
+#include "NexoApplication.hpp"
 
-@property (strong) NSWindow *window;
-@end
+#import <Cocoa/Cocoa.h>
 
-@implementation AppDelegate
+#include <stdexcept>
 
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotification
+
+namespace nexo
 {
-    NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
-    self.window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
-    self.window.title = [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"];
-    [self.window makeKeyAndOrderFront: self];
+    static MacPlatform thisPlatform;
+
+    Platform& Platform:: ThisPlatform()
+    {
+        return thisPlatform;
+    }
+    
+
+    void MacPlatform:: EventLoop()
+    {
+        Application& app = Application:: ThisApp();
+        app.result = NSApplicationMain(app.Argc(), app.Argv());
+    }
 }
-
-- (void)applicationWillTerminate: (NSNotification *)aNotification
-{
-}
-
-
-@end

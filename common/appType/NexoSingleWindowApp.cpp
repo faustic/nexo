@@ -1,8 +1,6 @@
 //
-//  NexoMacPlatform.mm
-//  Project
-//
-//  Created by Alejandro Castro García on 7 April 2019.
+// NexoSingleWindowApp.cpp
+// Created by Alejandro Castro García on 23 July 2019
 /*
  MIT License
  
@@ -25,30 +23,8 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
- */
-
-#include "NexoMacPlatform.hpp"
-
-#include "NexoApplication.hpp"
-
-#import <Cocoa/Cocoa.h>
-
-#include <stdexcept>
+*/
 
 
-namespace nexo
-{
-    static MacPlatform thisPlatform;
 
-    Platform& Platform:: ThisPlatform()
-    {
-        return thisPlatform;
-    }
-    
-
-    void MacPlatform:: EventLoop()
-    {
-        Application app = Application:: ThisApp();
-        app.result = NSApplicationMain(app.Argc(), app.Argv());
-    }
-}
+#include "NexoSingleWindowApp.hpp"
