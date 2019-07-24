@@ -38,12 +38,7 @@ namespace nexo
     {
     public:
         using Application:: Application;
-        
-        std::string ApplicationType()
-        {
-            return "7EA0E086-9486-4442-9395-521F256EC389";
-        }
-        
+                
         void Loaded();
     };
 }

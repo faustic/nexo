@@ -43,7 +43,6 @@ namespace nexo
     public:
         int result;
         
-        virtual std::string ApplicationType() = 0;
         virtual void Loaded() {}
 
         static void Start(int argc, char** argv);
