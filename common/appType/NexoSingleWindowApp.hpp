@@ -31,11 +31,13 @@
 #define NexoSingleWindowApp_hpp
 
 #include "NexoApplication.hpp"
+#include "NexoWindow.hpp"
 
 namespace nexo
 {
     class SingleWindowApp : public Application
     {
+        Window window;
     public:
         using Application:: Application;
                 

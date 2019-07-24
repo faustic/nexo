@@ -28,3 +28,11 @@
 
 
 #include "NexoSingleWindowApp.hpp"
+
+namespace nexo
+{
+    void SingleWindowApp:: Loaded()
+    {
+        window.Init();
+    }
+}

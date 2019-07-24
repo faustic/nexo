@@ -1,6 +1,6 @@
 //
-// NexoMacSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoWindow.cpp
+// Created by Alejandro Castro García on 24 July 2019
 /*
  MIT License
  
@@ -27,8 +27,17 @@
 
 
 
-#include "NexoMacSingleWindowApp.hpp"
+#include "NexoWindow.hpp"
 
 namespace nexo
 {
+    Window:: Window() :
+    platformWindow(0)
+    {}
+    
+    void Window:: Closed()
+    {
+        platformWindow = 0;
+    }
 }
+

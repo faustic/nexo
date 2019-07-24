@@ -1,6 +1,6 @@
 //
-// NexoMacSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoMacWindow.cpp
+// Created by Alejandro Castro García on 24 July 2019
 /*
  MIT License
  
@@ -27,8 +27,24 @@
 
 
 
-#include "NexoMacSingleWindowApp.hpp"
+#include "NexoMacWindow.hpp"
+
+#import <Cocoa/Cocoa.h>
 
 namespace nexo
 {
+    void Window:: Init()
+    {
+        NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+        NSWindow* window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
+        window.title = [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"];
+        [window makeKeyAndOrderFront: nil];
+        
+        
+        platformWindow = (__bridge_retained void*)window; //Careful here. If we retain the bridged reference, we need to release it when the window is no longer needed to avoid leaks. If we do not retain it, we may get crashes if the window keeps beeing accessed afer being closed.
+         
+         // When the window is about to be closed, we should call Window::Closed() to ensure that the window is no longer manipulated by Nexo.
+        
+
+    }
 }
