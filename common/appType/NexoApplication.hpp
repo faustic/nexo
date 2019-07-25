@@ -43,17 +43,18 @@ namespace nexo
     public:
         int result;
         
-        virtual void Loaded() {}
-
-        static void Start(int argc, char** argv);
-
-        static Application& ThisApp();
+        virtual void Loaded() {} // Called when the application has been loaded with all its required resourced.
+        
+        virtual void Terminated() {} // Called when the user explicitly quits the application (not when it is terminated programmatically)
 
         Application(int argc, char**argv);
         
         int Argc();
         const char** Argv();
 
+        static void Start(int argc, char** argv); // Creates the Application object. This function is application-specific.
+        static Application& ThisApp(); // Returns a reference to the Application object. Thhis function is application-specific.
+        
     };
 }
 

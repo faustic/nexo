@@ -31,6 +31,8 @@
 
 #include "NexoApplication.hpp"
 
+#include "NexoMacPlatform.hpp"
+
 @interface AppDelegate ()
 
 @end
@@ -44,6 +46,9 @@
 
 - (void)applicationWillTerminate: (NSNotification *)aNotification
 {
+    nexo:: Application:: ThisApp().Terminated(); // Inform the application that the user has chosen to quit.
+    
+    nexo:: Platform:: ThisPlatform().Terminate(); // This makes sure every destructor is called.
 }
 
 

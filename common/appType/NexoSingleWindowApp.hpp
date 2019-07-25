@@ -42,6 +42,7 @@ namespace nexo
         using Application:: Application;
                 
         void Loaded();
+        void Terminated();
         
         static void WindowClosed(Window& window);
     };

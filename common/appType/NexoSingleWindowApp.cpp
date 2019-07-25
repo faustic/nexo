@@ -39,9 +39,15 @@ namespace nexo
         window.Init();
     }
     
+    void SingleWindowApp:: Terminated()
+    {
+        window.Closed(); // In most platforms, Window::Closed() will be called automatically on termination, but making sure does not hurt.
+    }
+    
     void SingleWindowApp:: WindowClosed(Window &window)
     {
         Platform:: ThisPlatform().Terminate();
     }
+    
     
 }

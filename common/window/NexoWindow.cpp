@@ -43,7 +43,6 @@ namespace nexo
     {
         if (!closed)
         {
-            std:: cout << "Closed\n";
             closed = true;
             platformWindow = 0;
             if (ListenerAtClose)
