@@ -1,6 +1,6 @@
 //
-// NexoWindow.cpp
-// Created by Alejandro Castro García on 24 July 2019
+// NexoWindowDelegate.h
+// Created by Alejandro Castro García on 25 July 2019
 /*
  MIT License
  
@@ -27,20 +27,15 @@
 
 
 
-#include "NexoWindow.hpp"
+#import <Cocoa/Cocoa.h>
 
-#include <iostream>
+NS_ASSUME_NONNULL_BEGIN
 
-namespace nexo
-{
-    Window:: Window() :
-    platformWindow(0)
-    {}
-    
-    void Window:: Closed()
-    {
-        std:: cout << "Closed\n";
-        platformWindow = 0;
-    }
-}
+@interface NexoWindowDelegate : NSObject <NSWindowDelegate>
 
+- (instancetype)initWithWindow: (NSWindow*)window nexo: (void*)nexoWindow NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
+
+@end
+
+NS_ASSUME_NONNULL_END

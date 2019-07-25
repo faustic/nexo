@@ -30,6 +30,8 @@
 #include "NexoMacWindow.hpp"
 
 #import <Cocoa/Cocoa.h>
+#import "NexoWindowDelegate.h"
+
 
 namespace nexo
 {
@@ -37,14 +39,17 @@ namespace nexo
     {
         NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
         NSWindow* window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
+        window.releasedWhenClosed = NO; // We already release it as many times as we retain it.
         window.title = [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"];
         [window makeKeyAndOrderFront: nil];
-        
-        
-        platformWindow = (__bridge_retained void*)window; //Careful here. If we retain the bridged reference, we need to release it when the window is no longer needed to avoid leaks. If we do not retain it, we may get crashes if the window keeps beeing accessed afer being closed.
-         
-         // When the window is about to be closed, we should call Window::Closed() to ensure that the window is no longer manipulated by Nexo.
-        
 
+        NexoWindowDelegate* delegate = [NexoWindowDelegate.alloc initWithWindow: window nexo: (void*)this];
+        
+        window.delegate = delegate;
+        
+        
+        platformWindow = (__bridge_retained void*)delegate; //Careful here. If we retain the bridged reference, we need to release it when the window is no longer needed to avoid leaks. If we do not retain it, we may get crashes if the window keeps beeing accessed afer being closed.
+
+        
     }
 }

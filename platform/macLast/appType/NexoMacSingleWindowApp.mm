@@ -1,5 +1,5 @@
 //
-// NexoMacSingleWindowApp.cpp
+// NexoMacSingleWindowApp.mm
 // Created by Alejandro Castro García on 23 July 2019
 /*
  MIT License

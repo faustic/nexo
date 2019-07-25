@@ -1,5 +1,5 @@
 //
-//  AppDelegate.m
+//  AppDelegate.mm
 //  Project
 //
 //  Created by Alejandro Castro García on 7 April 2019.
@@ -38,7 +38,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
-{    
+{
     nexo:: Application:: ThisApp().Loaded();
 }
 

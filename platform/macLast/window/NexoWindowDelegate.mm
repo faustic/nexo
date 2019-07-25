@@ -1,6 +1,6 @@
 //
-// NexoWindow.cpp
-// Created by Alejandro Castro García on 24 July 2019
+// NexoWindowDelegate.mm
+// Created by Alejandro Castro García on 25 July 2019
 /*
  MIT License
  
@@ -27,20 +27,40 @@
 
 
 
-#include "NexoWindow.hpp"
+#import "NexoWindowDelegate.h"
 
-#include <iostream>
+#include "NexoMacWindow.hpp"
 
-namespace nexo
+@interface NexoWindowDelegate ()
+
+@property NSWindow* window;
+@property void* nexoWindow;
+
+@end
+
+@implementation NexoWindowDelegate
+
+- (instancetype)initWithWindow: (NSWindow*)window nexo: (void*)nexoWindow;
 {
-    Window:: Window() :
-    platformWindow(0)
-    {}
-    
-    void Window:: Closed()
+    self = [super init];
+    _window = window;
+    _nexoWindow = nexoWindow;
+    return self;
+}
+
+
+- (void)windowWillClose: (NSNotification *)notification
+{
+    if (self.window)
     {
-        std:: cout << "Closed\n";
-        platformWindow = 0;
+        nexo:: Window* nWindow = (nexo:: Window*) self.nexoWindow;
+        nWindow->Closed();
+        
+        self.window.delegate = nil;
+        self.nexoWindow = nullptr;
+        self.window = nil;
+        CFRelease((void*)self); // It was retained in nexo::Window::Init()
     }
 }
 
+@end
