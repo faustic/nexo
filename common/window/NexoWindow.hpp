@@ -34,11 +34,15 @@ namespace nexo
 {
     class Window
     {
+        void (*ListenerAtClose)(Window&);
         void* platformWindow;
+        bool closed;
     public:
         Window();
         void Init();
         void Closed();
+        
+        void NotifyWhenClosed(void (*)(Window&));
     };
 }
 

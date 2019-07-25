@@ -34,13 +34,27 @@
 namespace nexo
 {
     Window:: Window() :
-    platformWindow(0)
+    platformWindow(0),
+    closed(false),
+    ListenerAtClose(0)
     {}
     
     void Window:: Closed()
     {
-        std:: cout << "Closed\n";
-        platformWindow = 0;
+        if (!closed)
+        {
+            std:: cout << "Closed\n";
+            closed = true;
+            platformWindow = 0;
+            if (ListenerAtClose)
+                ListenerAtClose(*this);
+        }
     }
+    
+    void Window:: NotifyWhenClosed(void (*listener)(Window&))
+    {
+        ListenerAtClose = listener;
+    }
+
 }
 

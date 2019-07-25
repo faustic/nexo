@@ -46,6 +46,7 @@ namespace nexo
         virtual void Loaded() {}
 
         static void Start(int argc, char** argv);
+
         static Application& ThisApp();
 
         Application(int argc, char**argv);

@@ -31,12 +31,24 @@
 
 using nexo:: Application;
 using nexo:: Platform;
+using nexo:: NormalTermination;
 
 int main(int argc, char * argv[])
 {
-    Application:: Start(argc, argv);
-    Platform& platform = Platform:: ThisPlatform();
-    platform.EventLoop();
+    try
+    {
+        Application:: Start(argc, argv);
+        Platform& platform = Platform:: ThisPlatform();
+        platform.EventLoop();
+    }
+    catch(NormalTermination)
+    {
+        return 0;
+    }
+    catch(...)
+    {
+        throw;
+    }
     
     return Application:: ThisApp().result;
 }

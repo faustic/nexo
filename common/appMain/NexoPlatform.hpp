@@ -33,6 +33,8 @@ namespace nexo
 {
     class Application;
     
+    class NormalTermination {};
+    
     class Platform
     {
         
@@ -40,6 +42,8 @@ namespace nexo
         static Platform& ThisPlatform();
         
         virtual void EventLoop();
+        
+        virtual void Terminate();
 
     };
 }

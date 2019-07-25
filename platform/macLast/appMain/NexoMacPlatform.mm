@@ -44,7 +44,6 @@ namespace nexo
     {
         return thisPlatform;
     }
-    
 
     void MacPlatform:: EventLoop()
     {

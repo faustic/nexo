@@ -28,11 +28,20 @@
 
 
 #include "NexoSingleWindowApp.hpp"
+#include "NexoPlatform.hpp"
+
 
 namespace nexo
 {
     void SingleWindowApp:: Loaded()
     {
+        window.NotifyWhenClosed(WindowClosed);
         window.Init();
     }
+    
+    void SingleWindowApp:: WindowClosed(Window &window)
+    {
+        Platform:: ThisPlatform().Terminate();
+    }
+    
 }

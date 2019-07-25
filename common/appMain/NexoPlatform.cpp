@@ -36,4 +36,9 @@ namespace nexo
     {
         // The default event loop just returns.
     }
+    
+    void Platform:: Terminate()
+    {
+        throw NormalTermination();
+    }
 }
