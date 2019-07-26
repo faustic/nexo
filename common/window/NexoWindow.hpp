@@ -49,7 +49,7 @@ namespace nexo
         void NotifyWhenClosed(void (*)(Window&));
 
 // MARK: - Platform-dependent public funtions
-        void Init(const char* title);
+        void Init(const char* title, short width, short height, short left, short top);
         
         void SetTitle(const char* title);
     };

@@ -35,10 +35,10 @@
 
 namespace nexo
 {
-    void Window:: Init(const char* title)
+    void Window:: Init(const char* title, short width, short height, short left, short top)
     {
         NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
-        NSWindow* window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
+        NSWindow* window = [NSWindow.alloc initWithContentRect: NSMakeRect(left, top, width, height) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
         window.releasedWhenClosed = NO; // We already release it as many times as we retain it.
         
         [window makeKeyAndOrderFront: nil];
