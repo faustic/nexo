@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithWindow: (NSWindow*)window nexo: (void*)nexoWindow NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 
+- (void)setTitle: (NSString*)title;
+
 @end
 
 NS_ASSUME_NONNULL_END

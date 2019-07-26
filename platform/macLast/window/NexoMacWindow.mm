@@ -35,12 +35,12 @@
 
 namespace nexo
 {
-    void Window:: Init()
+    void Window:: Init(const char* title)
     {
         NSWindowStyleMask styleMask = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
         NSWindow* window = [NSWindow.alloc initWithContentRect: NSMakeRect(335, 390, 480, 360) styleMask: styleMask backing: NSBackingStoreBuffered defer: YES];
         window.releasedWhenClosed = NO; // We already release it as many times as we retain it.
-        window.title = [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"];
+        
         [window makeKeyAndOrderFront: nil];
 
         NexoWindowDelegate* delegate = [NexoWindowDelegate.alloc initWithWindow: window nexo: (void*)this];
@@ -48,8 +48,21 @@ namespace nexo
         window.delegate = delegate;
         
         
-        platformWindow = (__bridge_retained void*)delegate; //Careful here. If we retain the bridged reference, we need to release it when the window is no longer needed to avoid leaks. If we do not retain it, we may get crashes if the window keeps beeing accessed afer being closed.
-
+        platformWindow = (__bridge_retained void*)delegate; // This retain will be released by NexoWindowDelegate -windowWillClose:.
         
+        
+        SetTitle(title);
+    }
+    
+    void Window:: SetTitle(const char* title)
+    {
+        if (platformWindow)
+        {
+            NexoWindowDelegate* delegate = (__bridge NexoWindowDelegate*)platformWindow;
+            if (title)
+                [delegate setTitle: [NSString stringWithUTF8String: title]];
+            else
+                [delegate setTitle: [NSBundle.mainBundle.infoDictionary objectForKey: @"CFBundleName"]];
+        }
     }
 }

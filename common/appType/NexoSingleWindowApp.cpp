@@ -36,7 +36,7 @@ namespace nexo
     void SingleWindowApp:: Loaded()
     {
         window.NotifyWhenClosed(WindowClosed);
-        window.Init();
+        window.Init(0);
     }
     
     void SingleWindowApp:: Terminated()

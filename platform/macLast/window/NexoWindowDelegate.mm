@@ -63,4 +63,9 @@
     }
 }
 
+- (void)setTitle: (NSString*)title
+{
+    self.window.title =  title;
+}
+
 @end

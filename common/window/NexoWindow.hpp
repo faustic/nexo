@@ -30,19 +30,28 @@
 #ifndef NexoWindow_hpp
 #define NexoWindow_hpp
 
+#include <string>
+
 namespace nexo
 {
     class Window
     {
+// MARK: - Private fields
         void (*ListenerAtClose)(Window&);
         void* platformWindow;
         bool closed;
+        
     public:
+// MARK: - Platorm-independent public functions
         Window();
-        void Init();
         void Closed();
         
         void NotifyWhenClosed(void (*)(Window&));
+
+// MARK: - Platform-dependent public funtions
+        void Init(const char* title);
+        
+        void SetTitle(const char* title);
     };
 }
 
