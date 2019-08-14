@@ -39,7 +39,9 @@ namespace nexo
     {
         Window window;
     public:
-        using Application:: Application;
+        SingleWindowApp(int argc, char**argv) :
+        Application(argc, argv)
+        {}
                 
         void Loaded();
         void Terminated();
