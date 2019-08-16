@@ -1,6 +1,6 @@
 //
-// NexoApplication.hpp
-// Created by Alejandro Castro García on 8 April 2019
+// NexoMacResource.mm
+// Created by Alejandro Castro García on 16 August 2019
 /*
  MIT License
  
@@ -27,36 +27,27 @@
 
 
 
-#ifndef NexoApplication_hpp
-#define NexoApplication_hpp
+#include "NexoMacResource.hpp"
 
-#include <string>
+#import <Cocoa/Cocoa.h>
+
 
 namespace nexo
 {
-    class Application
+    ResourceData:: ResourceData(const std:: string& name, const std:: string& type, bool copy) :
+    impl(0)
     {
-    protected:
-        char** argv;
-        int argc;
+        NSBundle* mainBundle = NSBundle.mainBundle;
+        
+        NSString* resourceName = [NSString stringWithUTF8String: name.c_str()];
+        NSString* resourceType = [NSString stringWithUTF8String: type.c_str()];
+        NSString *path = [mainBundle pathForResource: resourceName ofType: resourceType];
+        
+        NSURL* url = [NSURL fileURLWithPath: path];
+        NSMutableData* data = [NSMutableData dataWithContentsOfURL: url];
+        
+        void* bytes = data.mutableBytes;
+        SetData(bytes, data.length, true);
+    }
 
-    public:
-        int result;
-        
-        virtual void Loaded() {} // Called when the application has been loaded with all its required resourced.
-        
-        virtual void Terminated() {} // Called when the user explicitly quits the application (not when it is terminated programmatically)
-
-        Application(int argc, char**argv);
-        
-        int Argc();
-        const char** Argv();
-
-        static void Start(int argc, char** argv); // Creates the Application object. This function is application-specific.
-        static Application& ThisApp(); // Returns a reference to the Application object. This function is application-specific.
-        void Ready(); // The application has been loaded and is ready for application-specific initializations. This function is application-specific.
-        
-    };
 }
-
-#endif /* NexoApplication_hpp */

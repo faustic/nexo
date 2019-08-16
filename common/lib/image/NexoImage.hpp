@@ -1,6 +1,6 @@
 //
-// NexoSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoImage.hpp
+// Created by Alejandro Castro García on 16 August 2019
 /*
  MIT License
  
@@ -27,29 +27,8 @@
 
 
 
-#include "NexoSingleWindowApp.hpp"
-#include "NexoPlatform.hpp"
+#ifndef NexoImage_hpp
+#define NexoImage_hpp
 
 
-namespace nexo
-{
-    void SingleWindowApp:: Loaded()
-    {
-        window.NotifyWhenClosed(WindowClosed);
-        window.Init(0, 480, 360, 335, 390);
-        
-        Ready();
-    }
-    
-    void SingleWindowApp:: Terminated()
-    {
-        window.Closed(); // In most platforms, Window::Closed() will be called automatically on termination, but making sure does not hurt.
-    }
-    
-    void SingleWindowApp:: WindowClosed(Window &window)
-    {
-        Platform:: ThisPlatform().Terminate();
-    }
-    
-    
-}
+#endif /* NexoImage_hpp */

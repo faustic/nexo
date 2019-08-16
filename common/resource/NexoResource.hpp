@@ -1,6 +1,6 @@
 //
-// NexoApplication.hpp
-// Created by Alejandro Castro García on 8 April 2019
+// NexoResource.hpp
+// Created by Alejandro Castro García on 16 August 2019
 /*
  MIT License
  
@@ -27,36 +27,44 @@
 
 
 
-#ifndef NexoApplication_hpp
-#define NexoApplication_hpp
+#ifndef NexoResource_hpp
+#define NexoResource_hpp
 
 #include <string>
 
 namespace nexo
 {
-    class Application
+    class ResourceDataImpl;
+    
+    class ResourceData
     {
-    protected:
-        char** argv;
-        int argc;
+        ResourceDataImpl* impl;
+        
+        ResourceData(const ResourceData&)
+#if __cplusplus >= 201103L
+        = delete
+#endif
+        ;
 
+        void SetData(void* data, size_t length, bool copy);
     public:
-        int result;
+        ResourceData(const std:: string& name, const std:: string& type, bool copy);
+        void* Data();
+        size_t Length();
+    };
+    
+    class Resource
+    {
+        std:: string name;
+        std:: string type;
+        ResourceData cache;
+    public:
+        Resource(const std:: string& name, const std:: string& type) :
+        name(name), type(type), cache(name, type, true)
+        {}
         
-        virtual void Loaded() {} // Called when the application has been loaded with all its required resourced.
-        
-        virtual void Terminated() {} // Called when the user explicitly quits the application (not when it is terminated programmatically)
-
-        Application(int argc, char**argv);
-        
-        int Argc();
-        const char** Argv();
-
-        static void Start(int argc, char** argv); // Creates the Application object. This function is application-specific.
-        static Application& ThisApp(); // Returns a reference to the Application object. This function is application-specific.
-        void Ready(); // The application has been loaded and is ready for application-specific initializations. This function is application-specific.
-        
+        ResourceData& GetData();
     };
 }
 
-#endif /* NexoApplication_hpp */
+#endif /* NexoResource_hpp */
