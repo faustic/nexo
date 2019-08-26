@@ -1,5 +1,5 @@
 //
-// NexoImageSector.cpp
+// NexoStaticImageSector.cpp
 // Created by Alejandro Castro García on 14 August 2019
 /*
  MIT License
@@ -27,10 +27,9 @@
 
 
 
-#include "NexoImageSector.hpp"
+#include "NexoStaticImageSector.hpp"
 
 namespace nexo
 {
-    
 }
 

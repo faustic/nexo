@@ -1,6 +1,6 @@
 //
-// NexoSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoMacStaticImageSector.hpp
+// Created by Alejandro Castro García on 26 August 2019
 /*
  MIT License
  
@@ -27,29 +27,14 @@
 
 
 
-#include "NexoSingleWindowApp.hpp"
-#include "NexoPlatform.hpp"
+#ifndef NexoMacStaticImageSector_hpp
+#define NexoMacStaticImageSector_hpp
 
+#include "NexoMacSector.hpp"
+#include "NexoStaticImageSector.hpp"
 
 namespace nexo
 {
-    void SingleWindowApp:: Loaded()
-    {
-        window.NotifyWhenClosed(WindowClosed);
-        window.Init(0, 480, 360, 335, 390);
-        
-        Ready();
-    }
-    
-    void SingleWindowApp:: Terminated()
-    {
-        window.Closed(); // In most platforms, Window::Closed() will be called automatically on termination, but making sure does not hurt.
-    }
-    
-    void SingleWindowApp:: WindowClosed(class Window &window)
-    {
-        Platform:: ThisPlatform().Terminate();
-    }
-    
-    
 }
+
+#endif /* NexoMacStaticImageSector_hpp */

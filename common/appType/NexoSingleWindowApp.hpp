@@ -46,7 +46,12 @@ namespace nexo
         void Loaded();
         void Terminated();
         
-        static void WindowClosed(Window& window);
+        Window* Window()
+        {
+            return &window;
+        }
+        
+        static void WindowClosed(class Window& window);
     };
 }
 

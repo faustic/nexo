@@ -1,6 +1,6 @@
 //
-// NexoSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoMacSector.hpp
+// Created by Alejandro Castro García on 26 August 2019
 /*
  MIT License
  
@@ -27,29 +27,22 @@
 
 
 
-#include "NexoSingleWindowApp.hpp"
-#include "NexoPlatform.hpp"
+#ifndef NexoMacSector_hpp
+#define NexoMacSector_hpp
 
+#include "NexoSector.hpp"
 
-namespace nexo
+#include <Cocoa/Cocoa.h>
+
+inline NSRect NexoFlippedRect(NSView* containerView, NSRect r)
 {
-    void SingleWindowApp:: Loaded()
+    if (!containerView.flipped)
     {
-        window.NotifyWhenClosed(WindowClosed);
-        window.Init(0, 480, 360, 335, 390);
-        
-        Ready();
+        NSRect containerRect = containerView.bounds;
+        r.origin.y = containerRect.size.height - r.origin.y - r.size.height;
     }
-    
-    void SingleWindowApp:: Terminated()
-    {
-        window.Closed(); // In most platforms, Window::Closed() will be called automatically on termination, but making sure does not hurt.
-    }
-    
-    void SingleWindowApp:: WindowClosed(class Window &window)
-    {
-        Platform:: ThisPlatform().Terminate();
-    }
-    
-    
+    return r;
 }
+
+
+#endif /* NexoMacSector_hpp */

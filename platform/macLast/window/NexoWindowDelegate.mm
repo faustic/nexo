@@ -33,7 +33,6 @@
 
 @interface NexoWindowDelegate ()
 
-@property NSWindow* window;
 @property void* nexoWindow;
 
 @end
@@ -58,7 +57,7 @@
         
         self.window.delegate = nil;
         self.nexoWindow = nullptr;
-        self.window = nil;
+        _window = nil;
         CFRelease((void*)self); // It was retained in nexo::Window::Init()
     }
 }

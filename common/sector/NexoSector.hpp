@@ -30,11 +30,33 @@
 #ifndef NexoSector_hpp
 #define NexoSector_hpp
 
+#include "NexoWindow.hpp"
+
 namespace nexo
 {
     class Sector
     {
+    protected:
+        short width;
+        short height;
+        short left;
+        short top;
+
+    public:
+        Sector(short width, short height, short left, short top) :
+        width(width), height(height), left(left), top(top)
+        {}
+        virtual void AddToWindow(Window& window) = 0;
+        virtual ~Sector() {}
+        
     };
+    
+    template <class T>
+    Sector* CopySector(T& sector)
+    {
+        T* copy = new T(sector);
+        return copy;
+    }
 }
 
 #endif /* NexoSector_hpp */

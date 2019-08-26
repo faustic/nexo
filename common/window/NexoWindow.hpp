@@ -31,14 +31,18 @@
 #define NexoWindow_hpp
 
 #include <string>
+#include <vector>
 
 namespace nexo
 {
+    class Sector;
+    
     class Window
     {
 // MARK: - Private fields
         void (*ListenerAtClose)(Window&);
         void* platformWindow;
+        std:: vector<Sector*> sectors;
         bool closed;
         
     public:
@@ -47,6 +51,11 @@ namespace nexo
         void Closed();
         
         void NotifyWhenClosed(void (*)(Window&));
+        
+        void* PlatformWindow()
+        {
+            return platformWindow;
+        }
 
 // MARK: - Platform-dependent public funtions
         void Init(const char* title, short width, short height, short left, short top);

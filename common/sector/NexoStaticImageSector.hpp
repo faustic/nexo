@@ -1,5 +1,5 @@
 //
-// NexoImageSector.hpp
+// NexoStaticImageSector.hpp
 // Created by Alejandro Castro García on 14 August 2019
 /*
  MIT License
@@ -27,17 +27,30 @@
 
 
 
-#ifndef NexoImageSector_hpp
-#define NexoImageSector_hpp
+#ifndef NexoStaticImageSector_hpp
+#define NexoStaticImageSector_hpp
 
 #include "NexoSector.hpp"
 
+#include "NexoResource.hpp"
+
+#include <string>
+
 namespace nexo
 {
-    class ImageSector : public Sector
+    class StaticImageSector : public Sector
     {
+        std:: string resourceName;
+        std:: string resourceType;
+    public:
+        void AddToWindow(Window& window);
         
+        StaticImageSector(short width, short height, short left, short top, const std:: string& resourceName, const std::string& resourceType) :
+        Sector(width, height, left, top),
+        resourceName(resourceName),
+        resourceType(resourceType)
+        {}
     };
 }
 
-#endif /* NexoImageSector_hpp */
+#endif /* NexoStaticImageSector_hpp */

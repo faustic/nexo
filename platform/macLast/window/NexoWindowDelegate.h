@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NexoWindowDelegate : NSObject <NSWindowDelegate>
 
+@property(readonly) NSWindow* window;
+
 - (instancetype)initWithWindow: (NSWindow*)window nexo: (void*)nexoWindow NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 

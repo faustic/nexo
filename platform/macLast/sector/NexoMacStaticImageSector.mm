@@ -1,6 +1,6 @@
 //
-// NexoSingleWindowApp.cpp
-// Created by Alejandro Castro García on 23 July 2019
+// NexoMacStaticImageSector.mm
+// Created by Alejandro Castro García on 26 August 2019
 /*
  MIT License
  
@@ -27,29 +27,31 @@
 
 
 
-#include "NexoSingleWindowApp.hpp"
-#include "NexoPlatform.hpp"
+#include "NexoMacStaticImageSector.hpp"
 
+#include "NexoWindowDelegate.h"
+
+#include <iostream>
 
 namespace nexo
 {
-    void SingleWindowApp:: Loaded()
+    void StaticImageSector:: AddToWindow(Window& window)
     {
-        window.NotifyWhenClosed(WindowClosed);
-        window.Init(0, 480, 360, 335, 390);
+        Resource r("sampleImage", "png");
+        ResourceData& rd = r.GetData();
+        void* d = rd.Data();
+        std:: cout << d << "\n";
         
-        Ready();
+        NexoWindowDelegate* delegate = (__bridge NexoWindowDelegate*)window.PlatformWindow();
+        NSView* contentView = delegate.window.contentView;
+        NSImage* img = [NSImage.alloc initWithData: [NSData dataWithBytes: rd.Data() length: rd.Length()]];
+        NSImageView* imgView = [NSImageView.alloc initWithFrame: NexoFlippedRect(contentView, NSMakeRect(left, top, width, height))];
+        imgView.image = img;
+        [contentView addSubview: imgView];
+        
+        std:: cout << "contentView flipped: " << contentView.flipped << "\n";
+        std:: cout << "imgView flipped: " << imgView.flipped << "\n";
     }
-    
-    void SingleWindowApp:: Terminated()
-    {
-        window.Closed(); // In most platforms, Window::Closed() will be called automatically on termination, but making sure does not hurt.
-    }
-    
-    void SingleWindowApp:: WindowClosed(class Window &window)
-    {
-        Platform:: ThisPlatform().Terminate();
-    }
-    
     
 }
+
