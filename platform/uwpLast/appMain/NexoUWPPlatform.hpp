@@ -34,6 +34,7 @@
 
 namespace nexo
 {
+
 	class UWPPlatform : public Platform
 	{
 	public:

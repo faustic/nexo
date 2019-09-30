@@ -35,11 +35,47 @@
 
 #include <stdexcept>
 
-void oldMain();
+void oldMain(); // Provisional
+
+using winrt::implements;
+using winrt::Windows::ApplicationModel::Core::IFrameworkViewSource;
+using winrt::Windows::ApplicationModel::Core::IFrameworkView;
+using winrt::hstring;
+using winrt::Windows::UI::Core::CoreWindow;
+using winrt::Windows::ApplicationModel::Core::CoreApplicationView;
 
 
 namespace nexo
 {
+	struct App : implements <App, IFrameworkViewSource, IFrameworkView>
+	{
+		IFrameworkView CreateView() const
+		{
+			return *this;
+		}
+
+		void Initialize(CoreApplicationView ) const
+		{
+		}
+
+		void Load(hstring) const
+		{
+		}
+
+		void Uninitialize() const
+		{
+		}
+
+		void Run() const
+		{
+			nexo::Application::ThisApp().Loaded();
+		}
+
+		void SetWindow(CoreWindow) const
+		{
+		}
+	};
+
 	static UWPPlatform thisPlatform;
 
 	Platform& Platform::ThisPlatform()
@@ -49,6 +85,6 @@ namespace nexo
 
 	void UWPPlatform::EventLoop()
 	{
-		oldMain();
+		oldMain(); // Call dummy main while we do not implement a custom one.
 	}
 }
