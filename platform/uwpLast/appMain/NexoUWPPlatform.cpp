@@ -38,8 +38,10 @@
 void oldMain(); // Provisional
 
 using winrt::implements;
+using winrt::make;
 using winrt::Windows::ApplicationModel::Core::IFrameworkViewSource;
 using winrt::Windows::ApplicationModel::Core::IFrameworkView;
+using winrt::Windows::ApplicationModel::Core::CoreApplication;
 using winrt::hstring;
 using winrt::Windows::UI::Core::CoreWindow;
 using winrt::Windows::ApplicationModel::Core::CoreApplicationView;
@@ -85,6 +87,8 @@ namespace nexo
 
 	void UWPPlatform::EventLoop()
 	{
-		oldMain(); // Call dummy main while we do not implement a custom one.
+		oldMain(); // Call dummy main while the custom one is not working.
+
+		// CoreApplication::Run(make<App>());
 	}
 }
