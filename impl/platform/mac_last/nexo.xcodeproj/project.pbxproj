@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		A956F98C253A18530019E166 /* platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A956F98A253A18530019E166 /* platform.cpp */; };
 		A956F98D253A18530019E166 /* platform.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A956F98B253A18530019E166 /* platform.hpp */; };
+		A9CE693B253D8ECA00366FB0 /* platform.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9CE693A253D8ECA00366FB0 /* platform.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A956F94A253A09C20019E166 /* libnexo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnexo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A956F98A253A18530019E166 /* platform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = platform.cpp; sourceTree = "<group>"; };
 		A956F98B253A18530019E166 /* platform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = platform.hpp; sourceTree = "<group>"; };
+		A9CE693A253D8ECA00366FB0 /* platform.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = platform.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		A956F994253A1ACE0019E166 /* units */ = {
 			isa = PBXGroup;
 			children = (
+				A9CE693A253D8ECA00366FB0 /* platform.mm */,
 			);
 			path = units;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9CE693B253D8ECA00366FB0 /* platform.mm in Sources */,
 				A956F98C253A18530019E166 /* platform.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

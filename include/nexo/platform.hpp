@@ -38,8 +38,10 @@ class Normal_termination {};
 class Platform
 {
 public:
-    virtual void event_loop();
+    virtual int event_loop(int argc, char** argv);
+    virtual int run(int argc, char** argv);
     virtual void terminate();
+    static Platform& this_platform();
 };
 
 } // namespace nexo

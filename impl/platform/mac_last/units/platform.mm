@@ -1,6 +1,6 @@
 //
 // platform.cpp
-// Created by Alejandro Castro Garcia on 16 October 2020
+// Created by Alejandro Castro Garcia on 19 October 2020
 /*
  MIT License
  
@@ -29,31 +29,24 @@
 
 #include <nexo/platform.hpp>
 
+#include <Cocoa/Cocoa.h>
+
 namespace nexo
 {
 
-int Platform::event_loop(int argc, char** argv)
+class Platform_mac_last : public Platform
 {
-// The default event loop just returns
-    return 0;
-}
-
-int Platform::run(int argc, char** argv)
-{
-    try
+    int event_loop(int argc, char** argv) override
     {
-        event_loop(argc, argv);
+        return NSApplicationMain(argc, (const char**)argv);
     }
-    catch(Normal_termination)
-    {
-        // Normal termination just unwinds the stack and returns to the caller
-    }
-    return 0;
-}
+};
 
-void Platform::terminate()
+static Platform_mac_last platform;
+
+Platform& Platform::this_platform()
 {
-    throw Normal_termination();
+    return platform;
 }
 
 } // namespace nexo
