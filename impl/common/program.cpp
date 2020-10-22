@@ -1,6 +1,6 @@
 //
-// platform.hpp
-// Created by Alejandro Castro Garcia on 16 October 2020
+// program.cpp
+// Created by Alejandro Castro Garcia on 22 October 2020
 /*
  MIT License
  
@@ -25,25 +25,35 @@
  SOFTWARE.
 */
 
-
-
-#ifndef platform_hpp
-#define platform_hpp
+#include <nexo/program.hpp>
 
 namespace nexo
 {
 
-class Normal_termination {};
+int Program::priv_result;
+int Program::priv_argc;
+char** Program::priv_argv;
 
-class Platform
+void Program::run(int argc, char** argv)
 {
-public:
-    virtual int event_loop(int argc, char** argv);
-    virtual int run(int argc, char** argv);
-    virtual void terminate();
-    static Platform& this_platform();
-};
+    priv_argc = argc;
+    priv_argv = argv;
+    try
+    {
+        event_loop();
+    }
+    catch(Run_exit)
+    {
+        // Normal termination just unwinds the stack and returns to the caller
+    }
+}
+
+void Program::terminate(int ret_value)
+{
+    priv_result = ret_value;
+    throw Run_exit();
+}
+
 
 } // namespace nexo
 
-#endif /* platform_hpp */

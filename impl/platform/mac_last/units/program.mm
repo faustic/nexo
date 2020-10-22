@@ -1,6 +1,6 @@
 //
-// platform.cpp
-// Created by Alejandro Castro Garcia on 19 October 2020
+// program.mm
+// Created by Alejandro Castro Garcia on 22 October 2020
 /*
  MIT License
  
@@ -26,27 +26,16 @@
 */
 
 
-
-#include <nexo/platform.hpp>
+#include <nexo/program.hpp>
 
 #include <Cocoa/Cocoa.h>
 
 namespace nexo
 {
 
-class Platform_mac_last : public Platform
+void Program::event_loop()
 {
-    int event_loop(int argc, char** argv) override
-    {
-        return NSApplicationMain(argc, (const char**)argv);
-    }
-};
-
-static Platform_mac_last platform;
-
-Platform& Platform::this_platform()
-{
-    return platform;
+    priv_result = NSApplicationMain(argc(), (const char**)argv());
 }
 
 } // namespace nexo
