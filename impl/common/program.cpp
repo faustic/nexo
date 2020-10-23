@@ -30,9 +30,42 @@
 namespace nexo
 {
 
+using std::vector;
+using std::shared_ptr;
+
 int Program::priv_result;
 int Program::priv_argc;
 char** Program::priv_argv;
+vector<shared_ptr<Lifecycle>> Program::lifecycle;
+
+class Run_exit {};
+
+void Program::add_lifecycle(std::shared_ptr<Lifecycle>& lf)
+{
+    lifecycle.push_back(lf);
+}
+
+void Program::cleanup()
+{
+    // Lifecycle objects might require proper cleanup
+    lifecycle.resize(0);
+}
+
+bool Program::please_quit()
+{
+    for (auto& lc: lifecycle)
+    {
+        if (!lc->please_quit())
+            return false;
+    }
+    return true;
+}
+
+void Program::ready()
+{
+    for (auto& lc: lifecycle)
+        lc->ready();
+}
 
 void Program::run(int argc, char** argv)
 {
@@ -44,6 +77,7 @@ void Program::run(int argc, char** argv)
     }
     catch(Run_exit)
     {
+        cleanup();
         // Normal termination just unwinds the stack and returns to the caller
     }
 }
@@ -51,6 +85,8 @@ void Program::run(int argc, char** argv)
 void Program::terminate(int ret_value)
 {
     priv_result = ret_value;
+    for (auto& lc: lifecycle)
+        lc->quitting();
     throw Run_exit();
 }
 

@@ -30,14 +30,31 @@
 #ifndef nexo_program_hpp
 #define nexo_program_hpp
 
+#include <vector>
+#include <memory>
+
 namespace nexo
 {
 
-class Run_exit {};
+class Lifecycle
+{
+public:
+    virtual bool please_quit()
+    {
+        return true;
+    }
+    virtual void quitting()
+    {
+    }
+    virtual void ready()
+    {
+    }
+};
 
 class Program
 {
-public:    
+public:
+    static void add_lifecycle(std::shared_ptr<Lifecycle>& lf);
     static int argc()
     {
         return priv_argc;
@@ -46,18 +63,23 @@ public:
     {
         return priv_argv;
     }
-    static void event_loop();
+    static void cleanup();
+    static bool please_quit();
     static int result()
     {
         return priv_result;
     }
     static void run(int argc, char** argv);
+    static void ready();
     static void terminate(int ret_value = 0);
     
 private:
     static int priv_result;
     static int priv_argc;
     static char** priv_argv;
+    static std::vector<std::shared_ptr<Lifecycle>> lifecycle;
+
+    static void event_loop();
 }; // class Program
 
 } // namespace nexo
