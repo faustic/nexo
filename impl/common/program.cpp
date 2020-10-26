@@ -82,7 +82,7 @@ void Program::run(int argc, char** argv)
     }
 }
 
-void Program::terminate(int ret_value)
+void Program::exit(int ret_value)
 {
     priv_result = ret_value;
     for (auto& lc: lifecycle)

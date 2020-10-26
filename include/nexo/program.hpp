@@ -71,7 +71,7 @@ public:
     }
     static void run(int argc, char** argv);
     static void ready();
-    static void terminate(int ret_value = 0);
+    static void exit(int ret_value = 0);
     
 private:
     static int priv_result;
