@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A95DC2B8255BEE6B00162F42 /* file.cpp */; };
+		A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A95DC2B9255BEE6B00162F42 /* file.hpp */; };
 		A9F119632541915800C38A64 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9F119612541915800C38A64 /* program.cpp */; };
 		A9F119642541915800C38A64 /* program.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A9F119622541915800C38A64 /* program.hpp */; };
 		A9F1196A2541971700C38A64 /* program.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9F119682541971700C38A64 /* program.mm */; };
@@ -14,6 +16,8 @@
 
 /* Begin PBXFileReference section */
 		A956F94A253A09C20019E166 /* libnexo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnexo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95DC2B8255BEE6B00162F42 /* file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file.cpp; sourceTree = "<group>"; };
+		A95DC2B9255BEE6B00162F42 /* file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
 		A9F119612541915800C38A64 /* program.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = program.cpp; sourceTree = "<group>"; };
 		A9F119622541915800C38A64 /* program.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = program.hpp; sourceTree = "<group>"; };
 		A9F119682541971700C38A64 /* program.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = program.mm; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		A956F95B253A0BF40019E166 /* nexo */ = {
 			isa = PBXGroup;
 			children = (
+				A95DC2B9255BEE6B00162F42 /* file.hpp */,
 				A9F119622541915800C38A64 /* program.hpp */,
 			);
 			path = nexo;
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F119682541971700C38A64 /* program.mm */,
+				A95DC2B8255BEE6B00162F42 /* file.cpp */,
 			);
 			path = nexo;
 			sourceTree = "<group>";
@@ -105,6 +111,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */,
 				A9F119642541915800C38A64 /* program.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +175,7 @@
 			files = (
 				A9F1196A2541971700C38A64 /* program.mm in Sources */,
 				A9F119632541915800C38A64 /* program.cpp in Sources */,
+				A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
