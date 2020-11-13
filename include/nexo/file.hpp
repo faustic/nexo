@@ -36,6 +36,12 @@
 namespace nexo
 {
 
+class File_info
+{
+public:
+private:
+}; // class File_info
+
 class File_locator
 {
 public:
