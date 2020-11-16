@@ -28,6 +28,8 @@
 
 #include "file.hpp"
 
+#include <iostream>
+
 namespace nexo
 {
 
@@ -43,6 +45,16 @@ public:
 private:
     string path;
 };
+
+File_info::File_info()
+{
+    std::cout << "File_info()\n";
+}
+
+File_info::~File_info()
+{
+    std::cout << "~File_info()\n";
+}
 
 File_locator::File_locator(string ref) : impl {make_unique<Impl>(ref)}
 {}

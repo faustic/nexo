@@ -32,6 +32,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 
 namespace nexo
 {
@@ -39,6 +40,8 @@ namespace nexo
 class File_info
 {
 public:
+    File_info();
+    ~File_info();
 private:
 }; // class File_info
 
