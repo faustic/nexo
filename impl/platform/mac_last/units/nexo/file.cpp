@@ -29,12 +29,34 @@
 #include "file.hpp"
 
 #include <iostream>
+#include <unordered_map>
 
 namespace nexo
 {
 
 using std::string;
 using std::make_unique;
+using std::unordered_map;
+
+class File_info::Impl
+{
+public:
+    string& at(const string& key)
+    {
+        return attr.at(key);
+    }
+private:
+    unordered_map<string, string> attr;
+};
+
+File_info::File_info() : impl(make_unique<Impl>())
+{
+}
+
+string& File_info::at(const string& key)
+{
+    return impl->at(key);
+}
 
 class File_locator::Impl
 {
@@ -45,16 +67,6 @@ public:
 private:
     string path;
 };
-
-File_info::File_info()
-{
-    std::cout << "File_info()\n";
-}
-
-File_info::~File_info()
-{
-    std::cout << "~File_info()\n";
-}
 
 File_locator::File_locator(string ref) : impl {make_unique<Impl>(ref)}
 {}

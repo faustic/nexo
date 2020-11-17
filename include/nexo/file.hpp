@@ -41,14 +41,18 @@ class File_info
 {
 public:
     File_info();
-    ~File_info();
+    ~File_info() = default;
+    std::string& at(const std::string& key);
 private:
+    class Impl;
+    std::unique_ptr<Impl> impl;
 }; // class File_info
 
 class File_locator
 {
 public:
     File_locator(std::string ref);
+    ~File_locator() = default;
 private:
     class Impl;
     std::unique_ptr<Impl> impl;
