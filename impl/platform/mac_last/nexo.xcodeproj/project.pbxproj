@@ -55,6 +55,7 @@
 		A956F953253A0B120019E166 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				A95DC2B8255BEE6B00162F42 /* file.cpp */,
 				A9F119612541915800C38A64 /* program.cpp */,
 			);
 			name = common;
@@ -99,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F119682541971700C38A64 /* program.mm */,
-				A95DC2B8255BEE6B00162F42 /* file.cpp */,
 			);
 			path = nexo;
 			sourceTree = "<group>";

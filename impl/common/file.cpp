@@ -26,7 +26,7 @@
 */
 
 
-#include "file.hpp"
+#include <nexo/file.hpp>
 
 #include <iostream>
 #include <unordered_map>
@@ -37,14 +37,11 @@ namespace nexo
 using std::string;
 using std::make_unique;
 using std::unordered_map;
+using std::out_of_range;
 
 class File_info::Impl
 {
-public:
-    string& at(const string& key)
-    {
-        return attr.at(key);
-    }
+    friend File_info;
 private:
     unordered_map<string, string> attr;
 };
@@ -53,13 +50,47 @@ File_info::File_info() : impl(make_unique<Impl>())
 {
 }
 
-string& File_info::at(const string& key)
+File_info::~File_info() = default; // Required by pimpl with unique_ptr
+
+File_info& File_info::operator ^=(const File_info& mask)
 {
-    return impl->at(key);
+// Remove attributes that are the same in this and mask
+// and add attributes that are in mask but not in this.
+    
+    // Remove attributes that are the same in this and mask
+    for (auto pair = impl->attr.begin(); pair != impl->attr.end();)
+    {
+        try
+        {
+            if (pair->second == mask.at(pair->first))
+                pair = impl->attr.erase(pair);
+            else
+                ++pair;
+                
+        }
+        catch (out_of_range)
+        {
+            pair = impl->attr.erase(pair);
+        }
+    }
+    
+    // Pending: add attributes that are in mask but not in this.
+    return *this;
+}
+
+string& File_info::at(const string& key) const
+{
+    return impl->attr.at(key);
+}
+
+File_info::operator bool()
+{
+    return impl->attr.size();
 }
 
 class File_locator::Impl
 {
+    friend File_locator;
 public:
     Impl(string ref) : path {ref}
     {
@@ -70,5 +101,7 @@ private:
 
 File_locator::File_locator(string ref) : impl {make_unique<Impl>(ref)}
 {}
+
+File_locator::~File_locator() = default; // Required by pimpl with unique_ptr
 
 } // namespace nexo
