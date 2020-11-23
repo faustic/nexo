@@ -37,6 +37,19 @@
 namespace nexo
 {
 
+class Error_bad_key
+{
+public:
+    Error_bad_key(std::string key) : priv_key {key}
+    {}
+    const std::string& key() const
+    {
+        return priv_key;
+    }
+private:
+    std::string priv_key;
+};
+
 class File_info
 {
 public:
@@ -55,6 +68,9 @@ class File_locator
 public:
     File_locator(std::string ref);
     ~File_locator();
+    
+    File_info get_info(std::vector<std::string> keys);
+    
 private:
     class Impl;
     std::unique_ptr<Impl> impl;
