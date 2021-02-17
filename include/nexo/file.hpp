@@ -1,5 +1,5 @@
-//
 // file.hpp
+// File-related classes
 // Created by Alejandro Castro Garcia on 11 November 2020
 /*
  Licensed under the MIT License

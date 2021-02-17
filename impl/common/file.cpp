@@ -1,4 +1,5 @@
 // file.cpp
+// Hidden implementation of file-related classes
 // Created by Alejandro Castro Garcia on 11 November 2020
 /*
  Licensed under the MIT License
