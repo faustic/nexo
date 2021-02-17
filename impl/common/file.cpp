@@ -1,8 +1,7 @@
-//
 // file.cpp
 // Created by Alejandro Castro Garcia on 11 November 2020
 /*
- MIT License
+ Licensed under the MIT License
  
  Copyright (c) 2020 Faustic Inferno SL
  
