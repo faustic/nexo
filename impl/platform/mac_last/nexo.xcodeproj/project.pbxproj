@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A94492E526FBA7D600D1E848 /* io.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A94492E426FBA7D600D1E848 /* io.hpp */; };
+		A94492ED26FBACC100D1E848 /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94492EB26FBACC100D1E848 /* io.cpp */; };
+		A94492EE26FBACC100D1E848 /* io_posix.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A94492EC26FBACC100D1E848 /* io_posix.hpp */; };
+		A94492F126FBADB300D1E848 /* serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A94492EF26FBADB300D1E848 /* serial.cpp */; };
+		A94492F226FBADB300D1E848 /* serial.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A94492F026FBADB300D1E848 /* serial.hpp */; };
 		A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A95DC2B8255BEE6B00162F42 /* file.cpp */; };
 		A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A95DC2B9255BEE6B00162F42 /* file.hpp */; };
 		A9F119632541915800C38A64 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9F119612541915800C38A64 /* program.cpp */; };
@@ -17,6 +21,10 @@
 
 /* Begin PBXFileReference section */
 		A94492E426FBA7D600D1E848 /* io.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = io.hpp; sourceTree = "<group>"; };
+		A94492EB26FBACC100D1E848 /* io.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = io.cpp; sourceTree = "<group>"; };
+		A94492EC26FBACC100D1E848 /* io_posix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = io_posix.hpp; sourceTree = "<group>"; };
+		A94492EF26FBADB300D1E848 /* serial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = serial.cpp; sourceTree = "<group>"; };
+		A94492F026FBADB300D1E848 /* serial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = serial.hpp; sourceTree = "<group>"; };
 		A956F94A253A09C20019E166 /* libnexo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnexo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95DC2B8255BEE6B00162F42 /* file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file.cpp; sourceTree = "<group>"; };
 		A95DC2B9255BEE6B00162F42 /* file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
@@ -40,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				A94492E426FBA7D600D1E848 /* io.hpp */,
+				A94492F026FBADB300D1E848 /* serial.hpp */,
 			);
 			path = io;
 			sourceTree = "<group>";
@@ -74,6 +83,16 @@
 				A9F119612541915800C38A64 /* program.cpp */,
 			);
 			path = gui;
+			sourceTree = "<group>";
+		};
+		A94492EA26FBAC8C00D1E848 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				A94492EB26FBACC100D1E848 /* io.cpp */,
+				A94492EC26FBACC100D1E848 /* io_posix.hpp */,
+				A94492EF26FBADB300D1E848 /* serial.cpp */,
+			);
+			path = io;
 			sourceTree = "<group>";
 		};
 		A956F941253A09C20019E166 = {
@@ -134,6 +153,7 @@
 		A956F994253A1ACE0019E166 /* units */ = {
 			isa = PBXGroup;
 			children = (
+				A94492EA26FBAC8C00D1E848 /* io */,
 				A9574B5A2543448600E9F299 /* gui */,
 			);
 			path = units;
@@ -154,8 +174,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94492EE26FBACC100D1E848 /* io_posix.hpp in Headers */,
 				A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */,
 				A9F119642541915800C38A64 /* program.hpp in Headers */,
+				A94492F226FBADB300D1E848 /* serial.hpp in Headers */,
 				A94492E526FBA7D600D1E848 /* io.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +242,8 @@
 				A9F1196A2541971700C38A64 /* program.mm in Sources */,
 				A9F119632541915800C38A64 /* program.cpp in Sources */,
 				A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */,
+				A94492F126FBADB300D1E848 /* serial.cpp in Sources */,
+				A94492ED26FBACC100D1E848 /* io.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +256,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -263,7 +287,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -282,6 +306,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = $HOME/local/include;
 			};
 			name = Debug;
 		};
@@ -291,7 +316,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -322,7 +347,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -334,6 +359,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SYSTEM_HEADER_SEARCH_PATHS = $HOME/local/include;
 			};
 			name = Release;
 		};
