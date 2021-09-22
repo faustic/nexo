@@ -34,10 +34,14 @@ SOFTWARE.
 #include <vector>
 #include <memory>
 #include <stdexcept>
+#include <span>
+#include <array>
 
 namespace nexo
 {
 
+using std::span;
+using std::array;
 using std::vector;
 using std::unique_ptr;
 using std::runtime_error;
@@ -68,8 +72,11 @@ using Byte = unsigned char;
 class Io_handler
 {
 public:
-    vector<Byte> read(size_t size);
     class Impl;
+    vector<Byte> read(size_t size);
+    Io_handler& operator>>(Byte& data);
+    Io_handler& operator<<(Byte data);
+    Io_handler& operator<<(span<Byte> byte);
 
 protected:
     unique_ptr<Impl> impl;

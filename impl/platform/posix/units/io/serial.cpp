@@ -171,31 +171,4 @@ void nexo::SerialPort::clear_dtr()
         throw nexo::Error_io_serial_internal("Cannot clear DTR");
 }
 
-nexo::SerialPort& nexo::SerialPort::operator<<(span<Byte> data)
-{
-    ssize_t size = data.size();
-    size_t offset = 0;
-    ssize_t bytes_written;
-    while ((bytes_written = write(impl->fd, data.data() + offset, size)) < size)
-    {
-        if (bytes_written < 0)
-            throw Error_io_write();
-        offset += bytes_written;
-        size -= bytes_written;
-    }
-    return *this;
-}
-
-nexo::SerialPort& nexo::SerialPort::operator<<(Byte byte)
-{
-    array<Byte, 1> data= {byte};
-    return *this << data;
-}
-
-nexo::SerialPort& nexo::SerialPort::operator>>(Byte& byte)
-{
-    vector<Byte> bytes = read(1);
-    byte = bytes.at(0);
-    return *this;
-}
 

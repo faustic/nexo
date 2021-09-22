@@ -32,8 +32,6 @@ SOFTWARE.
 #define nexo_serial_hpp
 
 #include <string>
-#include <span>
-#include <array>
 #include <cstdint>
 
 #include <nexo/io/io.hpp>
@@ -41,8 +39,6 @@ SOFTWARE.
 namespace nexo
 {
 
-using std::span;
-using std::array;
 using std::string;
 
 using Baudrate = std::uint_least32_t;
@@ -95,9 +91,6 @@ public:
     void set_options(const Serial_options& options);
     void set_dtr();
     void clear_dtr();
-    SerialPort& operator>>(Byte& data);
-    SerialPort& operator<<(Byte data);
-    SerialPort& operator<<(span<Byte> byte);
 };
 
 

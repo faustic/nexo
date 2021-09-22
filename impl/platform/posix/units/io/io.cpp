@@ -53,3 +53,30 @@ std::vector<nexo::Byte> nexo::Io_handler::read(size_t data_size)
     return data;
 }
 
+nexo::Io_handler& nexo::Io_handler::operator<<(span<Byte> data)
+{
+    ssize_t size = data.size();
+    size_t offset = 0;
+    ssize_t bytes_written;
+    while ((bytes_written = write(impl->fd, data.data() + offset, size)) < size)
+    {
+        if (bytes_written < 0)
+            throw Error_io_write();
+        offset += bytes_written;
+        size -= bytes_written;
+    }
+    return *this;
+}
+
+nexo::Io_handler& nexo::Io_handler::operator<<(Byte byte)
+{
+    array<Byte, 1> data= {byte};
+    return *this << data;
+}
+
+nexo::Io_handler& nexo::Io_handler::operator>>(Byte& byte)
+{
+    vector<Byte> bytes = read(1);
+    byte = bytes.at(0);
+    return *this;
+}
