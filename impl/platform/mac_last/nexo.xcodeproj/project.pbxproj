@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A94492E526FBA7D600D1E848 /* io.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A94492E426FBA7D600D1E848 /* io.hpp */; };
 		A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A95DC2B8255BEE6B00162F42 /* file.cpp */; };
 		A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A95DC2B9255BEE6B00162F42 /* file.hpp */; };
 		A9F119632541915800C38A64 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9F119612541915800C38A64 /* program.cpp */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A94492E426FBA7D600D1E848 /* io.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = io.hpp; sourceTree = "<group>"; };
 		A956F94A253A09C20019E166 /* libnexo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libnexo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95DC2B8255BEE6B00162F42 /* file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file.cpp; sourceTree = "<group>"; };
 		A95DC2B9255BEE6B00162F42 /* file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = file.hpp; sourceTree = "<group>"; };
@@ -34,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A94492E326FBA7AA00D1E848 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				A94492E426FBA7D600D1E848 /* io.hpp */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
 		A956F941253A09C20019E166 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		A956F95B253A0BF40019E166 /* nexo */ = {
 			isa = PBXGroup;
 			children = (
+				A94492E326FBA7AA00D1E848 /* io */,
 				A95DC2B9255BEE6B00162F42 /* file.hpp */,
 				A9F119622541915800C38A64 /* program.hpp */,
 			);
@@ -113,6 +124,7 @@
 			files = (
 				A95DC2BB255BEE6B00162F42 /* file.hpp in Headers */,
 				A9F119642541915800C38A64 /* program.hpp in Headers */,
+				A94492E526FBA7D600D1E848 /* io.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
