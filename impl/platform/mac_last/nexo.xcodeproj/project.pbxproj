@@ -44,6 +44,38 @@
 			path = io;
 			sourceTree = "<group>";
 		};
+		A94492E626FBA9A700D1E848 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				A9F119622541915800C38A64 /* program.hpp */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
+		A94492E726FBA9D800D1E848 /* fs */ = {
+			isa = PBXGroup;
+			children = (
+				A95DC2B9255BEE6B00162F42 /* file.hpp */,
+			);
+			path = fs;
+			sourceTree = "<group>";
+		};
+		A94492E826FBAAD400D1E848 /* fs */ = {
+			isa = PBXGroup;
+			children = (
+				A95DC2B8255BEE6B00162F42 /* file.cpp */,
+			);
+			path = fs;
+			sourceTree = "<group>";
+		};
+		A94492E926FBAAE100D1E848 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				A9F119612541915800C38A64 /* program.cpp */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
 		A956F941253A09C20019E166 = {
 			isa = PBXGroup;
 			children = (
@@ -65,8 +97,8 @@
 		A956F953253A0B120019E166 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				A95DC2B8255BEE6B00162F42 /* file.cpp */,
-				A9F119612541915800C38A64 /* program.cpp */,
+				A94492E926FBAAE100D1E848 /* gui */,
+				A94492E826FBAAD400D1E848 /* fs */,
 			);
 			name = common;
 			path = ../../common;
@@ -84,9 +116,9 @@
 		A956F95B253A0BF40019E166 /* nexo */ = {
 			isa = PBXGroup;
 			children = (
+				A94492E726FBA9D800D1E848 /* fs */,
+				A94492E626FBA9A700D1E848 /* gui */,
 				A94492E326FBA7AA00D1E848 /* io */,
-				A95DC2B9255BEE6B00162F42 /* file.hpp */,
-				A9F119622541915800C38A64 /* program.hpp */,
 			);
 			path = nexo;
 			sourceTree = "<group>";
@@ -102,17 +134,17 @@
 		A956F994253A1ACE0019E166 /* units */ = {
 			isa = PBXGroup;
 			children = (
-				A9574B5A2543448600E9F299 /* nexo */,
+				A9574B5A2543448600E9F299 /* gui */,
 			);
 			path = units;
 			sourceTree = "<group>";
 		};
-		A9574B5A2543448600E9F299 /* nexo */ = {
+		A9574B5A2543448600E9F299 /* gui */ = {
 			isa = PBXGroup;
 			children = (
 				A9F119682541971700C38A64 /* program.mm */,
 			);
-			path = nexo;
+			path = gui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
