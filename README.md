@@ -31,5 +31,5 @@ Nexo is designed according to the following principles:
 
 Nexo is still in a very early stage of development. As the project advances, there will be more documentation, organised into two main topics:
 
-* How to use the library.
-* How to modify the library.
+* [How to use the library](doc/use/README.md).
+* [How to modify the library](doc/dev/README.md).
