@@ -14,6 +14,8 @@ From a user's point of view, knowing the platform an application is written for 
 
 From a programmer's point of view, being asked to write an application for a certain platform means trying to answer the questions: "what tools and information do I need to do the job?"
 
+We usually adopt the user's view for matters of global organisation, such as naming the platforms. We adopt the programmer's view when going into the detail of each platform.
+
 ### Current platforms
 
 When we say a platform is current, we mean that it is still actively developed and maintained. For such a platform, we try to adhere to the following guidelines:
