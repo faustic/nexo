@@ -40,3 +40,23 @@ For Nexo development, we have considered two possible strategies:
 
 Our choice is **option B**. In practice, it may work as option A if we tend to start always with the same platform, but with no obligation.
 
+### Platform isolation
+
+When writing code that is not platform-independent but is compatible with more than one platform, there is the possibility of sharing code between platforms. For example, when writing POSIX-compatible code, it is tempting to share the same code between all platforms that are POSIX-compatible or compatible enough. We have done so before, but we have now decided against it.
+
+The current policy is **not to share implementation files** between different platforms, no matter how similar they are. Even if the files are identical, each platform must have its own separate copy. The following two examples illustrate an advantage and a disadvantage of such a decision.
+
+#### Example 1. Problem with duplicated code
+
+For a certain task, the same code is used for popular platform A and obscure platform B, but it is written in separate files, one for each platform. Eventually, a bug is discovered while testing platform A, and is corrected, but only on that platform. Nobody remembers that the same bug must also be present on the copy for platform B, where it remains uncorrected for years. This is an example of how our decision of isolating platforms may be disadvantageous.
+
+#### Example 2. Problem with shared code
+
+For a certain task, the same code is used for popular platform A and obscure platform B, both getting the code from the same exact file. Eventually, someone makes an improvement and tests it on platform A, where it works perfectly. However, the improvement makes the code incompatible with platform B, but this goes unnoticed for years. This is an example of how our decision of isolating platforms may be advantageous.
+
+#### Weighing of problems
+
+* Platform isolation means that if all Nexo developers stop working on a platform, the code will neither improve nor get worse for that platform.
+* Shared code means that even if all Nexo developers stop working on a platform, the code might still improve or get worse for that platform.
+
+For now, we will apply the principle of least surprise and persist with the policy of platform isolation. Future experience will tell if the choice was adequate.
