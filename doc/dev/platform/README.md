@@ -29,3 +29,12 @@ Retrocomputing platforms are those that are no longer developed or maintained, i
 * For a platform we target rarely and with no current version, we use a simple designator for it, such as `msdos`. Compatibility with different versions may be different for each piece of code.
 * For a platform we target often or if it is an old version of a current platform, we add qualifiers that hint about expected compatibility, such as `windows3`, `windows95`, `windowsxp`. We generally prefer a version specifier related to the commercial name rather than the internal version number.
 
+### Decentralised platform support
+
+For Nexo development, we have considered two possible strategies:
+
+1. Option A. Define a reference platform. Every platform-dependent piece of code that we need must first be written for the reference platform, and only then rewritten for other platforms.
+2. Option B. There is no reference platform. A piece of code is written first for the platform most convenient at the moment.
+
+Our choice is **option B**. In practice, it may work as option A if we tend to start always with the same platform, but with no obligation.
+
