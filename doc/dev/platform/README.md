@@ -16,8 +16,16 @@ From a programmer's point of view, being asked to write an application for a cer
 
 ### Current platforms
 
-Platforms that are still actively developed.
+When we say a platform is current, we mean that it is still actively developed and maintained. For such a platform, we try to adhere to the following guidelines:
+
+* We use a simple designator to refer to a current platform, such as `windows` or `mac`, which will be used to name directories related to the platform, and also as our informal name for the platform. We are abandoning our old habit of appending the suffix `_last` to the name to refer to the current version: when we do not add qualifiers, we mean to be compatible with the most current version.
+* The code we write for a current platform may be compatible or not with older versions of that platform. The effort we make to achieve such compatibility depends on a number of factors, such as viability, difficulty and user demand.
+* Being compatible with the current version is an aim, but we may be unable to keep pace with changes to the platform. If that is the case, we should consider the incompatible code as targeted to a different platform and treat it accordingly.
 
 ### Retrocomputing platforms
 
-Platforms that are no longer developed, including old versions of current platforms when too many incompatibilities have arisen.
+Retrocomputing platforms are those that are no longer developed or maintained, including old versions of current platforms when too many incompatibilities have arisen. Our guidelines for such platforms are:
+
+* For a platform we target rarely and with no current version, we use a simple designator for it, such as `msdos`. Compatibility with different versions may be different for each piece of code.
+* For a platform we target often or if it is an old version of a current platform, we add qualifiers that hint about expected compatibility, such as `windows3`, `windows95`, `windowsxp`. We generally prefer a version specifier related to the commercial name rather than the internal version number.
+
