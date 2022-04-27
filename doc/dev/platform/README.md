@@ -56,7 +56,9 @@ For a certain task, the same code is used for popular platform A and obscure pla
 
 #### Weighing of problems
 
-* Platform isolation means that if all Nexo developers stop working on a platform, the code will neither improve nor get worse for that platform.
+* Platform isolation means that if all Nexo developers stop working on a platform, the code will neither improve nor get worse for that platform (barring changes to the common interface, which is necessarily shared).
 * Shared code means that even if all Nexo developers stop working on a platform, the code might still improve or get worse for that platform.
 
 For now, we will apply the principle of least surprise and persist with the policy of platform isolation. Future experience will tell if the choice was adequate.
+
+It is worth mentioning that platform isolation refers only to the implementation files, which is where platform-dependence resides. Extending isolation to the interface files would make little sense, as the main goal of the Nexo project is precisely to use a common interface for all platforms. 
