@@ -4,7 +4,7 @@
 
 *Licensed under the MIT License*
 
-## Platform mac_last
+## Platform mac
 
 ### Main event loop
 
