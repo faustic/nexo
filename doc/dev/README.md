@@ -10,6 +10,10 @@
 
 The programming language of the project is C++. For certain platforms, other languages can also be used where deemed necessary or convenient.
 
+### Target platforms
+
+We have commitment to no platforms. We target platforms according to circumstances. If we implement a certain feature for a platform, it does not mean that every Nexo feature will be implemented for that platform. It is not even guaranteed that a platform exists where every Nexo feature is implemented.
+
 ### Project organisation
 
 Source files in the project consist of public headers, implementation files and private headers.
@@ -24,7 +28,7 @@ Build options must be set accordingly concerning header search paths.
 
 #### Implementation files
 
-Implementation files are under directory `impl` at the root of the project repository. They are platform-dependent and are grouped by platform and category. A directory `impl/common` contains some platform-independent implementation files, but it is likely that this directory will be removed in the future, and its contents reorganised differently.
+Implementation files are under directory `impl` at the root of the project repository. They are platform-dependent and are grouped by platform and category. How we group files by platform will be determined by our [concept of platform](platform/README.md). A directory `impl/common` contains some platform-independent implementation files, but it is likely that this directory will be removed in the future, and its contents reorganised differently.
 
 Client programs typically use Nexo implementation files in one of three different ways, some of which may not be available in all platforms:
 
