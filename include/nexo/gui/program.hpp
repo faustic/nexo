@@ -49,6 +49,9 @@ public:
     virtual void ready()
     {
     }
+    virtual void noparam()
+    {
+    }
 };
 
 class Program
@@ -71,6 +74,7 @@ public:
     }
     static void run(int argc, char** argv);
     static void ready();
+    static void noparam();
     static void exit(int ret_value = 0);
     
 private:

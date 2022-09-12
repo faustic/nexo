@@ -67,6 +67,12 @@ void Program::ready()
         lc->ready();
 }
 
+void Program::noparam()
+{
+    for (auto& lc: lifecycle)
+        lc->noparam();
+}
+
 void Program::run(int argc, char** argv)
 {
     priv_argc = argc;
