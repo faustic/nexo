@@ -8,7 +8,7 @@
 
 We use the name `windows` to refer to the platform represented by the operating system **Windows 11**  as of 29 April 2022. Being a current platform, the name `windows` will automatically refer to future versions as they are released.
 
-We are still not decided whether we are going to favour UWP or Win32. We had considered to define two separate platforms `uwp` and `win32`, but that goes against our stated policy of naming platforms according to the user's view, not the programmer's view. Hopefully, Project Reunion will make this issue irrelevant in a not too distant future.
+We are still not decided whether we are going to favour UWP or Win32. We had considered to define two separate platforms `uwp` and `win32`, but that goes against our stated policy of naming platforms according to the user's view, not the programmer's view. Anyway, we expect the Windows App SDK (formerly known as "Project Reunion") will make this issue largely irrelevant.
 
 ### Guidelines
 
