@@ -114,7 +114,7 @@ inline nexo::Error_io_serial_internal cant_set_attr()
 }
 }
 
-nexo::SerialPort::SerialPort
+nexo::Serialport::Serialport
                         (const string& port_name, const Serial_options* options)
 {
     impl->fd = open(port_name.c_str(), O_RDWR|O_NOCTTY);
@@ -135,7 +135,7 @@ nexo::SerialPort::SerialPort
         set_options(*options);
 }
 
-nexo::SerialPort::~SerialPort()
+nexo::Serialport::~Serialport()
 {
     if (impl->fd > 0)
     {
@@ -144,7 +144,7 @@ nexo::SerialPort::~SerialPort()
     }
 }
 
-void nexo::SerialPort::set_options(const Serial_options& options)
+void nexo::Serialport::set_options(const Serial_options& options)
 {
     termios termios;
     if (tcgetattr(impl->fd, &termios))
@@ -157,14 +157,14 @@ void nexo::SerialPort::set_options(const Serial_options& options)
         throw cant_get_attr();
 }
 
-void nexo::SerialPort::set_dtr()
+void nexo::Serialport::set_dtr()
 {
     int flags = TIOCM_DTR;
     if (ioctl(impl->fd, TIOCMBIS, &flags))
         throw nexo::Error_io_serial_internal("Cannot set DTR");
 }
 
-void nexo::SerialPort::clear_dtr()
+void nexo::Serialport::clear_dtr()
 {
     int flags = TIOCM_DTR;
     if (ioctl(impl->fd, TIOCMBIC, &flags))

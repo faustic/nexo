@@ -58,7 +58,7 @@ public:
     {}
 };
 
-class SerialPort;
+class Serialport;
 
 enum class Databits {five = 5, six, seven, eight};
 enum class Stopbits {one = 1, two};
@@ -66,7 +66,7 @@ enum class Parity {no, even, odd};
 
 class Serial_options
 {
-    friend SerialPort;
+    friend Serialport;
 public:
     Serial_options(Baudrate bauds, Databits databits, Stopbits stopbits,
                   Parity parity):
@@ -83,11 +83,11 @@ private:
     Parity parity;
 };
 
-class SerialPort: public Io_handler
+class Serialport: public Io_handler
 {
 public:
-    SerialPort(const string& port, const Serial_options* options = nullptr);
-    ~SerialPort();
+    Serialport(const string& port, const Serial_options* options = nullptr);
+    ~Serialport();
     void set_options(const Serial_options& options);
     void set_dtr();
     void clear_dtr();
