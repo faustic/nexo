@@ -34,11 +34,64 @@ SOFTWARE.
 namespace nexo
 {
 
+class Text_conversion_error: public std::runtime_error
+{
+public:
+    explicit Text_conversion_error():
+    std::runtime_error("Text conversion error")
+    {
+    }
+};
+
+class U8string
+{
+// Similar to std::u8string, but uses char instead of char8_t and
+// not every function is implemented.
+// Attempting to avoid std::u8string weirdness while still
+// being explicit about its intended encoding.
+public:
+    U8string() {}
+    explicit U8string(const std::string& str) : priv_str(str)
+    {
+    }
+    explicit U8string(const char* c) :priv_str(c)
+    {
+    }
+
+    constexpr const char* c_str() const noexcept
+    {
+        return priv_str.c_str();
+    }
+
+    constexpr char& at(std::string::size_type pos)
+    {
+        return priv_str.at(pos);
+    }
+
+    constexpr const char& at(std::string::size_type pos) const
+    {
+        return priv_str.at(pos);
+    }
+
+    constexpr char& operator[](std::string::size_type pos)
+    {
+        return priv_str[pos];
+    }
+
+    constexpr const char& operator[](std::string::size_type pos) const
+    {
+        return priv_str[pos];
+    }
+
+private:
+    std::string priv_str;
+};
+
 class Estring
 {
 public:
-    virtual Estring& operator=(std::u8string) = 0;
-    explicit virtual operator std::u8string() = 0;
+    virtual Estring& operator=(const U8string&) = 0;
+    explicit virtual operator U8string() = 0;
 };
 
 }
