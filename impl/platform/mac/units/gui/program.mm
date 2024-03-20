@@ -4,7 +4,7 @@
 /*
  Licensed under the MIT License
  
- Copyright (c) 2020 Faustic Inferno SL
+ Copyright (c) Faustic Inferno SL
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@
 */
 
 
-#include <nexo/program.hpp>
+#include <nexo/gui/program.hpp>
 
 #include <Cocoa/Cocoa.h>
 

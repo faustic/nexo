@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		A9F119632541915800C38A64 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9F119612541915800C38A64 /* program.cpp */; };
 		A9F119642541915800C38A64 /* program.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A9F119622541915800C38A64 /* program.hpp */; };
 		A9F1196A2541971700C38A64 /* program.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9F119682541971700C38A64 /* program.mm */; };
+		CEE1CBA12AE6CB8B006792A3 /* dtext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,9 @@
 		A9F119612541915800C38A64 /* program.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = program.cpp; sourceTree = "<group>"; };
 		A9F119622541915800C38A64 /* program.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = program.hpp; sourceTree = "<group>"; };
 		A9F119682541971700C38A64 /* program.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = program.mm; sourceTree = "<group>"; };
+		CEE1CB9D2AE6C66A006792A3 /* text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = text.hpp; sourceTree = "<group>"; };
+		CEE1CB9F2AE6C9FA006792A3 /* dtext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dtext.hpp; sourceTree = "<group>"; };
+		CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dtext.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F119622541915800C38A64 /* program.hpp */,
+				CEE1CB9F2AE6C9FA006792A3 /* dtext.hpp */,
 			);
 			path = gui;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 		A956F95B253A0BF40019E166 /* nexo */ = {
 			isa = PBXGroup;
 			children = (
+				CEE1CB9C2AE6C5AF006792A3 /* base */,
 				A94492E726FBA9D800D1E848 /* fs */,
 				A94492E626FBA9A700D1E848 /* gui */,
 				A94492E326FBA7AA00D1E848 /* io */,
@@ -163,8 +169,17 @@
 			isa = PBXGroup;
 			children = (
 				A9F119682541971700C38A64 /* program.mm */,
+				CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */,
 			);
 			path = gui;
+			sourceTree = "<group>";
+		};
+		CEE1CB9C2AE6C5AF006792A3 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				CEE1CB9D2AE6C66A006792A3 /* text.hpp */,
+			);
+			path = base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +223,8 @@
 		A956F942253A09C20019E166 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = "Faustic Inferno SL";
 				TargetAttributes = {
 					A956F949253A09C20019E166 = {
@@ -240,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F1196A2541971700C38A64 /* program.mm in Sources */,
+				CEE1CBA12AE6CB8B006792A3 /* dtext.cpp in Sources */,
 				A9F119632541915800C38A64 /* program.cpp in Sources */,
 				A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */,
 				A94492F126FBADB300D1E848 /* serial.cpp in Sources */,
@@ -287,6 +304,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -347,6 +365,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
