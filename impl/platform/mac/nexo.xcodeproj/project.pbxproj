@@ -17,7 +17,7 @@
 		A9F119632541915800C38A64 /* program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9F119612541915800C38A64 /* program.cpp */; };
 		A9F119642541915800C38A64 /* program.hpp in Headers */ = {isa = PBXBuildFile; fileRef = A9F119622541915800C38A64 /* program.hpp */; };
 		A9F1196A2541971700C38A64 /* program.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9F119682541971700C38A64 /* program.mm */; };
-		CEE1CBA12AE6CB8B006792A3 /* dtext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */; };
+		CEE1CBA12AE6CB8B006792A3 /* htext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEE1CBA02AE6CB8B006792A3 /* htext.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		A9F119622541915800C38A64 /* program.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = program.hpp; sourceTree = "<group>"; };
 		A9F119682541971700C38A64 /* program.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = program.mm; sourceTree = "<group>"; };
 		CEE1CB9D2AE6C66A006792A3 /* text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = text.hpp; sourceTree = "<group>"; };
-		CEE1CB9F2AE6C9FA006792A3 /* dtext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dtext.hpp; sourceTree = "<group>"; };
-		CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dtext.cpp; sourceTree = "<group>"; };
+		CEE1CB9F2AE6C9FA006792A3 /* htext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = htext.hpp; sourceTree = "<group>"; };
+		CEE1CBA02AE6CB8B006792A3 /* htext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = htext.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F119622541915800C38A64 /* program.hpp */,
-				CEE1CB9F2AE6C9FA006792A3 /* dtext.hpp */,
+				CEE1CB9F2AE6C9FA006792A3 /* htext.hpp */,
 			);
 			path = gui;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F119682541971700C38A64 /* program.mm */,
-				CEE1CBA02AE6CB8B006792A3 /* dtext.cpp */,
+				CEE1CBA02AE6CB8B006792A3 /* htext.cpp */,
 			);
 			path = gui;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = "Faustic Inferno SL";
 				TargetAttributes = {
 					A956F949253A09C20019E166 = {
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F1196A2541971700C38A64 /* program.mm in Sources */,
-				CEE1CBA12AE6CB8B006792A3 /* dtext.cpp in Sources */,
+				CEE1CBA12AE6CB8B006792A3 /* htext.cpp in Sources */,
 				A9F119632541915800C38A64 /* program.cpp in Sources */,
 				A95DC2BA255BEE6B00162F42 /* file.cpp in Sources */,
 				A94492F126FBADB300D1E848 /* serial.cpp in Sources */,

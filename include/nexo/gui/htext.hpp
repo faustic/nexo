@@ -1,5 +1,4 @@
-// dtext.hpp
-// Drawable text
+// Human-oriented text for display and edition
 // Created by Alejandro Castro García on 23 October 2023
 /*
 Licensed under the MIT License.
@@ -35,15 +34,15 @@ SOFTWARE.
 namespace nexo
 {
 
-class Dstring: public Estring
+class Hstring: public Estring
 {
 public:
-    Dstring(const U8string& u);
-    Dstring() : Dstring(U8string(""))
+    Hstring(const U8string& u);
+    Hstring() : Hstring(U8string(""))
     {
     }
-    ~Dstring();
-    Dstring& operator=(const U8string&) override;
+    ~Hstring();
+    Hstring& operator=(const U8string&) override;
     explicit operator U8string() override;
     class Impl;
 private:

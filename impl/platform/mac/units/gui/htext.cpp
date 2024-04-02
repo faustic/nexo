@@ -1,5 +1,4 @@
-// dtext.cpp
-// Drawable text
+// Human-oriented text for display and edition
 // Created by Alejandro Castro García on 23 October 2023
 /*
 Licensed under the MIT License.
@@ -26,28 +25,28 @@ SOFTWARE.
 */
 
 
-#include <nexo/gui/dtext.hpp>
+#include <nexo/gui/htext.hpp>
 #include <CoreFoundation/CoreFoundation.h>
 #include <new>
 #include <vector>
 
-struct nexo::Dstring::Impl
+struct nexo::Hstring::Impl
 {
     CFStringRef ref;
 };
 
-nexo::Dstring::Dstring(const U8string& u)
+nexo::Hstring::Hstring(const U8string& u)
 {
     impl = std::make_unique<Impl>();
     *this = u;
 }
 
-nexo::Dstring::~Dstring()
+nexo::Hstring::~Hstring()
 {
     CFRelease(impl->ref);
 }
 
-auto nexo::Dstring::operator=(const U8string& u) -> nexo::Dstring&
+auto nexo::Hstring::operator=(const U8string& u) -> nexo::Hstring&
 {
     const char* p = u.c_str();
     impl->ref = CFStringCreateWithCString(nullptr, p, kCFStringEncodingUTF8);
@@ -56,7 +55,7 @@ auto nexo::Dstring::operator=(const U8string& u) -> nexo::Dstring&
     return *this;
 }
 
-nexo::Dstring::operator U8string()
+nexo::Hstring::operator U8string()
 {
     const char* p = CFStringGetCStringPtr(impl->ref, kCFStringEncodingUTF8);
     if (p)
