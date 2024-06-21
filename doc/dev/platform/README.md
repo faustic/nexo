@@ -40,11 +40,15 @@ For Nexo development, we have considered two possible strategies:
 
 Our choice is **option B**. In practice, it may work as option A if we tend to start always with the same platform, but with no obligation.
 
+### Interface stability
+
+At any given time, it must be clear which interface files are stable and which ones are still experimental. Unless clearly designated as stable, an interface file must be assumed to be experimental. After an interface file is declared stable, it must not be further modified, except for adding deprecation notices. If it is really important that it is modified, a new interface file with a different name must be created, so that old code is not affected (although possibly with deprecation warnings during compilation) while new code can use the new modified interfaces.
+
 ### Platform isolation
 
 When writing code that is not platform-independent but is compatible with more than one platform, there is the possibility of sharing code between platforms. For example, when writing POSIX-compatible code, it is tempting to share the same code between all platforms that are POSIX-compatible or compatible enough. We have done so before, but we have now decided against it.
 
-The current policy is **not to share implementation files** between different platforms, no matter how similar they are. Even if the files are identical, each platform must have its own separate copy. The following two examples illustrate an advantage and a disadvantage of such a decision.
+The current policy is **not to share implementation files** between different platforms, no matter how similar they are. Even if the files are identical, each platform must have its own separate copy (but see what is later said about [exposed implementation details](#exposed-implementation-details)). The following two examples illustrate an advantage and a disadvantage of such a decision.
 
 #### Example 1. Problem with duplicated code
 
@@ -61,4 +65,8 @@ For a certain task, the same code is used for popular platform A and obscure pla
 
 For now, we will apply the principle of least surprise and persist with the policy of platform isolation. Future experience will tell if the choice was adequate.
 
-It is worth mentioning that platform isolation refers only to the implementation files, which is where platform-dependence resides. Extending isolation to the interface files would make little sense, as the main goal of the Nexo project is precisely to use a common interface for all platforms. 
+It is worth mentioning that platform isolation refers only to the implementation files, which is where platform-dependence resides. Extending isolation to the interface files would make little sense, as the main goal of the Nexo project is precisely to use a common interface for all platforms.
+
+### Exposed implementation details
+
+Despite what has been said about separation of interfaces and implementation, we can occasionally allow implementation details to appear in some interface files, whether to be used only by a set of related platforms (such as POSIX-compatible ones) or for some other reason. In that case, the exposed implementation details are subject to the same rule as the rest of the interface file: once the file is declared stable, the exposed implementation details must not be further modified.
