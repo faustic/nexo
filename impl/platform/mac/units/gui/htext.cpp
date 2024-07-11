@@ -41,13 +41,27 @@ nexo::Hstring::Hstring(const U8string& u)
     *this = u;
 }
 
+nexo::Hstring::Hstring(const Hstring& s)
+{
+    impl = std::make_unique<Impl>();
+    impl->ref = CFStringCreateCopy(nullptr, s.impl->ref);
+}
+
+nexo::Hstring::Hstring(Hstring&& s)
+{
+    impl = std::move(s.impl);
+}
+
 nexo::Hstring::~Hstring()
 {
-    CFRelease(impl->ref);
+    if (impl && impl->ref)
+        CFRelease(impl->ref);
 }
 
 auto nexo::Hstring::operator=(const U8string& u) -> nexo::Hstring&
 {
+    if (!impl)
+        impl = std::make_unique<Impl>();
     const char* p = u.c_str();
     impl->ref = CFStringCreateWithCString(nullptr, p, kCFStringEncodingUTF8);
     if (!impl->ref)
@@ -55,8 +69,10 @@ auto nexo::Hstring::operator=(const U8string& u) -> nexo::Hstring&
     return *this;
 }
 
-nexo::Hstring::operator U8string()
+nexo::Hstring::operator U8string() const
 {
+    if (!impl)
+        return U8string();
     const char* p = CFStringGetCStringPtr(impl->ref, kCFStringEncodingUTF8);
     if (p)
         return U8string(p);
@@ -67,3 +83,4 @@ nexo::Hstring::operator U8string()
         throw Text_conversion_error();
     return U8string(up.data());
 }
+

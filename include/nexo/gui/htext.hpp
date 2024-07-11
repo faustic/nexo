@@ -41,9 +41,11 @@ public:
     Hstring() : Hstring(U8string(""))
     {
     }
+    Hstring(const Hstring&);
+    Hstring(Hstring&&);
     ~Hstring();
     Hstring& operator=(const U8string&) override;
-    explicit operator U8string() override;
+    explicit operator U8string() const override;
     class Impl;
 private:
     std::unique_ptr<Impl> impl;

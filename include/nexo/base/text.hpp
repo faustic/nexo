@@ -91,7 +91,7 @@ class Estring
 {
 public:
     virtual Estring& operator=(const U8string&) = 0;
-    explicit virtual operator U8string() = 0;
+    explicit virtual operator U8string() const = 0;
 };
 
 }
