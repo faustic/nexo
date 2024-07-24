@@ -82,6 +82,45 @@ public:
     {
         return priv_str[pos];
     }
+    
+    U8string& operator+=(const U8string& str)
+    {
+        priv_str += str.c_str();
+        return *this;
+    }
+    
+    U8string operator+(const U8string& str) const
+    {
+        U8string sum = *this;
+        sum += str;
+        return sum;
+    }
+    
+    U8string& operator+=(unsigned long long n)
+    {
+        char c[] = {0x30, '\0'};
+        U8string str;
+        if (!n)
+            str = U8string(c);
+        else while (n)
+        {
+            c[0] = 0x30 | (n % 10);
+            str = U8string(c) + str;
+            n /= 10;
+        }
+        *this += str;
+        return *this;
+    }
+
+    U8string& operator+=(long long n)
+    {
+        unsigned long long u = n;
+        if (n >= 0)
+            return *this += u;
+        priv_str.push_back(0x2d);
+        u = ~u + 1;
+        return *this += u;
+    }
 
 private:
     std::string priv_str;
