@@ -1,5 +1,4 @@
 // Human-oriented text for display and edition
-// Created by Alejandro Castro García on 23 October 2023
 /*
 Licensed under the MIT License.
  

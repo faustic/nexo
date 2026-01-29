@@ -1,4 +1,3 @@
-// io.cpp
 // Input/output: implementation for Windows.
 // Intended compatibility: c++20
 //

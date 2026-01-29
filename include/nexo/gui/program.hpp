@@ -1,10 +1,8 @@
-// program.hpp
 // Program-related classes
-// Created by Alejandro Castro Garcia on 22 October 2020
 /*
  Licensed under the MIT License
  
- Copyright (c) 2020 Faustic Inferno SL
+ Copyright (c) Faustic Inferno SL
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

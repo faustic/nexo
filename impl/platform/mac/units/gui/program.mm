@@ -1,6 +1,5 @@
 // program.mm
 // Platform-dependent implementation of program-related classes
-// Created by Alejandro Castro Garcia on 22 October 2020
 /*
  Licensed under the MIT License
  

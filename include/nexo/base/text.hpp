@@ -1,6 +1,4 @@
-// text.hpp
 // Basic text-related types
-// Created by Alejandro Castro García on 23 October 2023
 /*
 Licensed under the MIT License.
  
