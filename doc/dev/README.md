@@ -46,8 +46,9 @@ Besides being organised by platform, source files are organised by category. Eac
 
 Currently, only the following categories have been defined:
 
-* `fs`: functions related to the file system. Not intended to deal with file data, but with platform-dependent features such as file system metadata (permissions, modification date, etc.).
-* `gui`: functions related to the graphical user interface.
-* `io`: functions related to communication with devices. Not intended for regular file input/output, although it may also be included if at some time we deem the standard library insufficient for this need.
+* `base`: functions and classes that have no other purpose than being of use to other categories.
+* `fs`: functions and classes related to the file system. Not intended to deal with file data, but with platform-dependent features such as file system metadata (permissions, modification date, etc.).
+* `gui`: functions and classes related to the graphical user interface.
+* `io`: functions and classes related to communication with devices. Not intended for regular file input/output, although it may also be included if at some time we deem the standard library insufficient for this need.
 
 Categories are organised hierarchically. A category can have subcategories, represented by subdirectories of the parent category. A category depends on its subcategories, but it does not depend on its parent nor sibling categories. In other words, a category interface directory with the corresponding category implementation directory should be usable as a smaller library independently from the rest of the library.
