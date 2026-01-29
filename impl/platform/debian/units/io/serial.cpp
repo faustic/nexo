@@ -1,5 +1,4 @@
 // Serial communications: implementation for POSIX
-// Intended compatibility: c++20
 //
 /*
 Licensed under the MIT License.

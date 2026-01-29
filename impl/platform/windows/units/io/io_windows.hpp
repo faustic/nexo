@@ -1,5 +1,4 @@
 // Input/output: interface for Windows
-// Intended compatibility: c++20
 //
 /*
 Licensed under the MIT License.
